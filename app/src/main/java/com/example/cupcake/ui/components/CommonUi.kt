@@ -13,32 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.cupcake
+package com.example.cupcake.ui.components
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.cupcake.ui.theme.CupcakeTheme
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.cupcake.R
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
-        super.onCreate(savedInstanceState)
-        setContent {
-            CupcakeTheme {
-                CupcakeApp()
-            }
-        }
-    }
-}
-
-@Preview
+/**
+ * Composable that displays formatted [price] that will be formatted and displayed on screen
+ */
 @Composable
-fun AppPreview() {
-    CupcakeTheme {
-        CupcakeApp()
-    }
+fun FormattedPriceLabel(subtotal: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(R.string.subtotal_price, subtotal),
+        modifier = modifier,
+        style = MaterialTheme.typography.headlineSmall
+    )
 }
