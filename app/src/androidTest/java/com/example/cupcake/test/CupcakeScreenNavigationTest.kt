@@ -125,6 +125,8 @@ class CupcakeScreenNavigationTest {
     @Test
     fun cupcakeNavHost_clickNextOnPickupScreen_navigatesToSummaryScreen() {
         navigateToPickupScreen()
+        composeTestRule.onNodeWithText(getFormattedDate())
+            .performClick()
         composeTestRule.onNodeWithStringId(R.string.next)
             .performClick()
         navController.assertCurrentRouteName(CupcakeScreen.Summary.name)
